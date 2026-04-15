@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, MapPin, Mail, Phone, ChevronDown, Leaf, Flower2, Heart, ArrowRight, Camera, ImagePlus } from 'lucide-react'
+import BeholdWidget from '@behold/react'
 import './App.css'
 
 /* ─── SVG Botanical Decorations ─── */
@@ -248,6 +249,22 @@ function Gallery() {
   )
 }
 
+/* ─── Instagram Feed ─── */
+function InstagramFeed() {
+  return (
+    <section className="instagram">
+      <div className="instagram__header">
+        <p className="section-label">Follow Along</p>
+        <h2 className="section-heading">@grayduckflowerco</h2>
+        <p className="instagram__sub">See what's blooming on the farm and behind the scenes.</p>
+      </div>
+      <div className="instagram__widget">
+        <BeholdWidget feedId="92N2v6krqNz7vYYcmp5e" />
+      </div>
+    </section>
+  )
+}
+
 /* ─── Testimonial ─── */
 function Testimonial() {
   return (
@@ -392,6 +409,7 @@ function App() {
       <SeasonalRibbon />
       <Flowers />
       <Gallery />
+      <InstagramFeed />
       <Testimonial />
       <Contact />
       <Footer />
