@@ -703,7 +703,7 @@
 .testimonial__mark {
   font-family: var(--font-serif);
   font-size: 5rem;
-  color: rgba(254, 252, 249, 0.25);
+  color: rgba(58, 58, 46, 0.15);
   line-height: 0.5;
   margin-bottom: 1rem;
 }
@@ -713,7 +713,7 @@
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 300;
   font-style: italic;
-  color: var(--white);
+  color: var(--dark);
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
@@ -723,7 +723,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(254, 252, 249, 0.55);
+  color: rgba(58, 58, 46, 0.6);
 }
 
 /* ─── Contact ─── */
