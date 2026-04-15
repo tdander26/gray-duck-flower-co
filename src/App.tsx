@@ -56,7 +56,8 @@ function Navigation() {
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="nav__inner">
         <a href="#home" className="nav__logo">
-          <img src="logo.jpeg" alt="Gray Duck Flower Co." className="nav__logo-img" />
+          <img src="logo-circle.png" alt="Gray Duck Flower Co." className="nav__logo-img" />
+          <span className="nav__logo-text">Gray Duck Flower Co.</span>
         </a>
         <div className={`nav__links ${isOpen ? 'nav__links--open' : ''}`}>
           {links.map(link => (
@@ -83,13 +84,11 @@ function Hero() {
   return (
     <section id="home" className="hero">
       <div className="hero__bg">
-        <BotanicalStem className="hero__botanical hero__botanical--left" />
-        <BotanicalStem className="hero__botanical hero__botanical--right" />
-        <BotanicalBranch className="hero__botanical hero__botanical--top" />
-        <BotanicalBranch className="hero__botanical hero__botanical--bottom" />
+        <div className="hero__photo" style={{ backgroundImage: 'url(hero-bg.jpg)' }} />
+        <div className="hero__photo-overlay" />
       </div>
       <div className="hero__content">
-        <img src="logo.jpeg" alt="Gray Duck Flower Co." className="hero__logo" />
+        <h1 className="hero__title">Gray Duck<br/>Flower Co.</h1>
         <div className="hero__divider" />
         <p className="hero__tagline">Locally grown, hand-tended blooms<br/>cultivated with care in Corcoran, Minnesota</p>
         <a href="#flowers" className="hero__cta">Explore Our Blooms</a>
@@ -108,12 +107,12 @@ function About() {
       <div className="about__container">
         <div className="about__image-col">
           <div className="about__image-frame">
-            <PhotoPlaceholder label="Farm photo" aspect="3/4" size="lg" />
+            <div className="about__image" style={{ backgroundImage: 'url(about-photo.jpg)' }} />
           </div>
         </div>
         <div className="about__text-col">
           <p className="section-label">Our Story</p>
-          <h2 className="section-heading">Rooted in the<br/>Minnesota Prairie</h2>
+          <h2 className="section-heading">Rooted in<br/>Rolling Farmland</h2>
           <div className="about__divider" />
           <p className="about__body">
             Nestled in the rolling farmland of Corcoran, Minnesota, Gray Duck Flower Co. is a small-batch flower farm
@@ -215,8 +214,14 @@ function Flowers() {
 /* ─── Gallery ─── */
 function Gallery() {
   const items = [
-    'Spring blooms', 'Field rows', 'Dahlia close-up', 'Bouquet detail',
-    'Farm sunrise', 'Arrangement', 'Harvest day', 'Wildflower mix',
+    { src: 'flower-1.jpg', alt: 'Mixed dahlia and hydrangea arrangement' },
+    { src: null, alt: 'Peony close-up' },
+    { src: null, alt: 'Dahlia close-up' },
+    { src: null, alt: 'Bouquet detail' },
+    { src: null, alt: 'Farm scene' },
+    { src: 'flower-2.jpg', alt: 'Seasonal flower spread' },
+    { src: null, alt: 'Harvest day' },
+    { src: null, alt: 'Wildflower mix' },
   ]
 
   return (
@@ -224,15 +229,18 @@ function Gallery() {
       <div className="gallery__header">
         <p className="section-label">From the Farm</p>
         <h2 className="section-heading">Gallery</h2>
-        <p className="gallery__sub">Your farm photos will live here — snapshots of the growing season, fresh arrangements, and life on the flower farm.</p>
       </div>
       <div className="gallery__grid">
-        {items.map((label, i) => (
+        {items.map((item, i) => (
           <div key={i} className={`gallery__item gallery__item--${i + 1}`}>
-            <div className="gallery__placeholder">
-              <ImagePlus size={24} className="gallery__placeholder-icon" />
-              <span>{label}</span>
-            </div>
+            {item.src ? (
+              <img src={item.src} alt={item.alt} loading="lazy" />
+            ) : (
+              <div className="gallery__placeholder">
+                <ImagePlus size={24} className="gallery__placeholder-icon" />
+                <span>{item.alt}</span>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -343,11 +351,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__inner">
-        <div className="footer__brand">
-          <img src="logo.jpeg" alt="Gray Duck Flower Co." className="footer__logo" />
-          <p className="footer__tagline">Locally grown blooms from<br/>Corcoran, Minnesota</p>
-        </div>
-        <div className="footer__links">
+        <div className="footer__left">
           <div className="footer__col">
             <h4 className="footer__heading">Navigate</h4>
             <a href="#home">Home</a>
@@ -362,6 +366,13 @@ function Footer() {
             <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
             <a href="https://pinterest.com" target="_blank" rel="noopener">Pinterest</a>
           </div>
+        </div>
+        <div className="footer__center">
+          <img src="logo-circle.png" alt="Gray Duck Flower Co." className="footer__logo" />
+        </div>
+        <div className="footer__right">
+          <h3 className="footer__brand-name">Gray Duck<br/>Flower Co.</h3>
+          <p className="footer__tagline">Locally grown blooms from<br/>Corcoran, Minnesota</p>
         </div>
       </div>
       <div className="footer__bottom">
