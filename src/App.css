@@ -172,6 +172,7 @@
     display: block;
   }
   .nav__links {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
